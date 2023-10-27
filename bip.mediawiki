@@ -1,0 +1,207 @@
+<pre>
+  BIP: ?
+  Layer: Applications
+  Title: Atomicals Digital Objects
+  Author: B
+  Comments-Summary: No comments yet.
+  Comments-URI: https://github.com/atomicals/atomicals-project/discussions/1
+  Status: Draft
+  Type: Informational
+  Created: 2023-03-31
+  License: Public Domain
+</pre>
+
+== Introduction ==
+
+=== Abstract ===
+
+This document defines a protocol for creating and managing Atomicals Digital Objects, which are a special kind of Non-Fungible Token (NFT).
+
+=== Copyright ===
+
+This work is placed in the public domain.
+
+=== Motivation ===
+
+Bitcoin has no concept of persistent identities or accounts and natively does not support other types beyond the native unit of exchange.
+
+This protocol is the simplest, and most flexible, way to organize digital objects (non-fungible tokens), on any unspent transaction output (UTXO) blockchain
+such as Bitcoin. What this proposal provides is a way to define and manage _peer-to-peer digital objects_ without any secondary layers nor changes to Bitcoin: it
+just works.
+
+== Protocol Overview ==
+
+=== What is the Atomicals Protocol? ===
+
+The Atomicals Protocol is a simple, yet flexible protocol for minting, transferring and updating digital objects 
+(traditionally called non-fungible tokens) for unspent transaction output (UTXO) blockchains such as Bitcoin, Litecoin, 
+Dogecoin and others. An Atomical is a way to organize the creation, transfer and updates of digital objects – it is 
+ssentially a chain of digital ownership defined according to a few simple rules.
+
+=== Why use Atomicals? ===
+
+The Atomical specification is the simplest possible way to organize digital property on a blockchain such as Bitcoin. 
+The implementation is very simple and provides the maximum flexibility for static and dynamic digital assets, 
+artifacts and objects. The rules are so simple that it's impossible to accidentally spend Atomicals as miner fees 
+and it's trivial to verify that ownership was transferred to the correct recipient – without relying on any third 
+parties whatsoever or even being required to run an indexer. Atomicals are self-evident digital object histories.
+
+=== Use Cases ===
+
+- Digital collectibles, media and art
+- Digital identity, authentication and token- gated content.
+- Web hosting and file storage
+- Peer to peer exchange and atomic swaps
+- Digital namespace allocation
+- Virtual land and title registries
+- Dynamic objects and state for games
+- Social media profiles, posts and communities
+- Anywhere security and decentralization is critical concern. Military grade security and verification requirements. 
+
+The usage philosophy of Atomicals is to pass along the complete history of an Atomical digital object from mint 
+inception and including every transfer updates. Even if an Atomical is updated or exchanges hands 10,000 times – 
+that amounts to only about 2.5 MB of data (250 bytes x 10,000). A digital object is self-evident, unforgeable 
+chain of authenticity that does not rely on any third party service or centralized indexer for verification 
+purposes.
+
+The motto is:
+
+<b>"No transaction history, not your digital object"</b>
+
+Any client, wallet, marketplace, game and service can rapidly verify the Atomical by processing the history 
+according to the very simple rules and detect a fake instantly without relying on trusted services.
+The heart of Atomicals is a few key simple rules to follow for mint, transfer, and update operations, 
+continue reading to the Protocol Overview to understand the high level flow before diving deeper.  If you 
+like, you can just skip all the theory and go straight to minting your first Atomical within a couple of minutes.
+
+=== The Atomicals Vision ===
+
+The grand vision is to establish and secure the Bitcoin blockchain as the source of truth and digital 
+sovereignty.  Atomicals provides a simple and powerful protocol to take back control of our digital lives 
+forever. We have everything within reach for us to create the future we want.
+The Atomicals Protocol is open source, free for anyone to use however they want. All the libraries, frameworks 
+and services are released under MIT and GPLv3 to ensure no one has power over the tools and protocol.
+
+This is our work of passion to give to the world an option for finally bringing programmable digital objects 
+to Bitcoin. It works today with no changes to Bitcoin, no side-chains, no separate token, no secondary 
+layers and no middlemen, no leaders nor centralized parties.
+
+It is designed to work in harmony with the other protocols that have emerged such as Nostr, Ordinals and 
+more. Each Protocol has it's different strengths and Atomicals Digital Objects adds to the landscape of 
+options available for users, creators and developers.
+
+Atomicals is a shift to sovereignty and self-ownership over our digital lives. A simple and extremely 
+powerful protocol to re-decentralize the web and social communities.
+
+== Digital Objects ==
+
+=== What are Digital Objects? ===
+
+An Atomical digital object (or simply "Atomical") is a new kind of Non-Fungible Token (NFT) that can be 
+minted, transferred, and updated on Bitcoin. The major difference is there is no requirement to use a 
+centralized service or middleman acting as a trusted indexer. It just works today and without needing 
+changes whatsoever to Bitcoin nor requiring side-chains or any secondary layers. It is time to take 
+back control of our digital lives - forever.
+
+Atomicals are self-evident and easy to verify which makes them perfect for digital collectibles, 
+social media, gaming, authentication and anywhere ownership and authenticity is critical to establish. 
+The protocol rules are extremely simple, yet at the same time provides military grade security and 
+verification levels. Zero room for error.
+
+The Atomicals Protocol is free, open-source and will forever be available to use by anyone anywhere. 
+Our digital future depends on a robust digital object format to elegantly handle every possible use 
+case while minimizing any potential for errors in software implementations.
+
+=== How to Create Digital Objects ===
+
+An Atomical is minted using a 2-step commit and reveal scheme using Taproot (P2TR) spend scripts 
+using the Atomicals Envelope and the minting operation denoted by the letter "m". A transaction 
+output commits to the data or file being commuted and then the data is included in a spend script 
+to reveal the content which could one or more files with any content type such as images, text or 
+any media.
+
+Once created the Atomical is stored on the blockchain forever immutably and may be transferred 
+using any address type to any new owner according to the familiar rules of Bitcoin.
+
+=== How to Update Digital Objects ===
+
+In addition to immutable content and files, Atomicals digital objects supports the ability to 
+attach any number of files and state at any time after using the update operation.
+
+Similar to the minting operation, the update follows a 2-step commit and reveal 
+scheme to commit to an update and then a P2TR taproot spend script reveals the update contents.
+
+Any file or content type is supported in a single update. The owner of the digital object can 
+overwrite, or update, the content of any file. This gives Atomicals a unique capability to act 
+as an evolving data object perfect for social media, games, and more.
+
+Due to the nature of immutable storage, every file has the revision history stored permanently 
+to be able to playback the state changes with fidelity.
+
+=== How to Transfer Digital Objects ===
+
+An Atomical, once minted, is transferred like regular Bitcoins using any address format type
+include Taproot (P2TR), SegWit, Multisig, and legacy address (P2PKH).
+
+No special wallet support is required, although it is highly recommended to use an Atomicals-aware 
+wallet to help facility identifying and transferring Atomicals safely. Even though it is impossible 
+to accidentally destroy an Atomical, it is possible to send it to an unintended recipient if 
+the user is not careful using a wallet that does not facilitate Atomicals identification. 
+Fortunately the implementation is the simplest possible protocol that makes it easy for wallets 
+and services to do if correctly and avoiding errors.
+
+== Atomical Numbers ==
+
+An Atomical Number is a sequential numbering scheme starting from 1. The numbering scheme is used 
+to give a global order of the Atomicals that were minted. The Atomicals numbering scheme provides 
+a simple way to refer to individual Atomicals with a short number that complements the Atomical ID.  
+
+Atomicals have the Atomical ID which is a unique identifier based on the hash and output of the 
+transaction it was minted in such as <txid>i<index> 
+(Example: a14e65573ff32b95b91a0ed8367feec64125e5f4ff44d9901002b262da959e6di0). In contrast, 
+the Atomical number is the sequential ordering of every Atomical that was minted, in the order 
+they appear in the blockchain. 
+ 
+== Frequently Asked Questions ==
+
+=== What is the Atomicals Protocol? ===
+
+Atomicals Protocol is the most simple, flexible and secure way of creating digital objects on 
+Bitcoin. Every Atomical is a self-evident and tamper resistant chain of digital signatures, 
+it is a robust file format for every use imaginable. Everything on the internet can now 
+potentially be owned digital property. 
+
+=== Does Atomicals require a separate chain, additional layers or any changes to Bitcoin? ===
+
+No! It's here now and works on native Bitcoin and existing wallets today. It leverages the key 
+design of Bitcoin and requires no secondary layers, side-chains and no trusted services to 
+operate.  
+
+=== What can Atomicals Digital Objects be used for? ===
+
+Atomicals is designed for the most demanding security requirements with zero room for error.
+Digital Objects perfect for everything from digital art, authentication schemes to virtual land and title registries and social media such as:
+
+- Digital collectibles, media and art
+- Digital identity, authentication and token-gated content
+- Web hosting and file storage
+- Peer to peer exchange and atomic swaps
+- Digital namespace allocation
+- Virtual land and title registries
+- Dynamic objects and state for games
+- Social media profiles, posts and communities
+
+=== Why are Atomicals called "digital objects" instead of "NFTs"? ===
+
+A non-fungible token (NFT) is a highly technical term that does not convey the diverse set 
+of usages available. Atomicals uses the term "digital objects" to elicit all of the 
+potential uses of the protocol. It is far more familiar to the average person and is also 
+very developer friendly in the sense that we already work with digital objects and 
+understand their properties.
+
+== Discussions ==
+
+Add comments and issues 
+
+
+
